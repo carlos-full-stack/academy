@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get("/", [HomeController::class,"index"]);
+Route::get('/cursos', [CoursesController::class, 'index']);
+Route::get('cursos/nuevo', [CoursesController::class, 'create']);
+Route::get('cursos/{$course}', [CoursesController::class, 'show']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
